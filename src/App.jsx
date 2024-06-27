@@ -1,10 +1,71 @@
+
+import { useEffect, useState } from "react"
+
 import { Background } from "./components/background";
+import { Header } from "./components/header";
+import { DescriptionMovie } from "./components/description-movie";
+import { Movies } from "./components/movies/indes";
+import { Video } from "./components/video";
+import { apiData } from "./components/api/data";
+import axios from "axios";
+
+const DEFAULT_MOVIE = {
+
+  
+    title: "Avengers endGame",
+    description: 'Avengers: Endgame é um filme de super-herói americano de 2019, baseado na equipe Vingadores da Marvel Comics. Produzido pela Marvel Studios e distribuído pela Walt Disney Studios Motion Pictures, é a sequência direta de Avengers: Infinity War e o vigésimo segundo filme do Universo Cinematográfico Marvel. ',
+    imageSmall: "https://falaanimal.com.br/wp-content/uploads/2019/04/vingadoresultimato1_10042019-701x1024.jpg",
+    imageBanner: "src/assets/37853b30-776e-4f8b-b679-32945b114daa.jpeg",
+    linkVideo: "4QRdB4RAQMs",
+    category: "movies",
+
+};
 
 function App() {
-    return
-      <Background></Background>;
-    
+  const [video, setVideo,] = useState(apiData?.movies[0])
+  const [moviesData, setMoviesData] = useState([]);
+  const [playVideo, setPlayVideo] = useState(false);
+  const baseUrl = 'http://localhost:3003'
+
+  const { title, description, linkVideo, imageBanner } = video;
+
+  const apiDataMovies = moviesData?.movies?.length > 0 ? moviesData : apiData;
+
+  useEffect(() => {
+    const getMoviesAndCategories = async () => {
+      const { data } = await axios.get(`${baseUrl}/movies-categories`);
+      setMoviesData(data);
+    };
+    getMoviesAndCategories();
+  }, []);
+
+  const handleOpenPlayVideo = () => setPlayVideo(true);
+  const handleClosePlayVideo = () => setPlayVideo(false);
+
+  const handleVideo = (data) => {
+    setVideo(data);
+    window.scrollTo({ top: 0 });
+  }
+
+  return (
+    <Background
+      imageBanner={imageBanner}>
+
+      <Header />
+      <DescriptionMovie
+        title={title}
+        description={description}
+        handleOpenPlayVideo={handleOpenPlayVideo} />
+      <Movies data={apiData} handleVideo={(data) => handleVideo(data)}
+      />
+      <Video
+        playVideo={playVideo}
+        handleClosePlayVideo={handleClosePlayVideo}
+        linkVideo={linkVideo}
+      />
+
+    </Background>
+  );
 }
 
-
-export default App
+export default App;

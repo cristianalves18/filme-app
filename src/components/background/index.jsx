@@ -1,8 +1,17 @@
 
-import { BackgroundImage } from "./style";
-import  backgroundImage  from "../../assets/legados.webp";
-export const  Background = ({children}) =>{
+import PropTypes from 'prop-types';
+import { BackgroundImage, BackgroundGradient,   } from "./style";
+export const Background = ({ children, imageBanner }) => {
 
-    return(<BackgroundImage bgImage={backgroundImage}>{children}</BackgroundImage>
-    )
-}
+    return (
+        <BackgroundImage bgImage={imageBanner}>
+                 
+            <BackgroundGradient>
+     
+                {children} 
+                </BackgroundGradient>
+
+
+        </BackgroundImage>
+    );
+};
