@@ -12,12 +12,12 @@ import axios from "axios";
 const DEFAULT_MOVIE = {
 
   
-    title: "Avengers endGame",
-    description: 'Avengers: Endgame é um filme de super-herói americano de 2019, baseado na equipe Vingadores da Marvel Comics. Produzido pela Marvel Studios e distribuído pela Walt Disney Studios Motion Pictures, é a sequência direta de Avengers: Infinity War e o vigésimo segundo filme do Universo Cinematográfico Marvel. ',
-    imageSmall: "https://falaanimal.com.br/wp-content/uploads/2019/04/vingadoresultimato1_10042019-701x1024.jpg",
-    imageBanner: "src/assets/37853b30-776e-4f8b-b679-32945b114daa.jpeg",
-    linkVideo: "4QRdB4RAQMs",
-    category: "movies",
+  title: "Avengers endGame",
+  description: 'Avengers: Endgame é um filme de super-herói americano de 2019, baseado na equipe Vingadores da Marvel Comics. Produzido pela Marvel Studios e distribuído pela Walt Disney Studios Motion Pictures, é a sequência direta de Avengers: Infinity War e o vigésimo segundo filme do Universo Cinematográfico Marvel. ',
+  imageSmall: "https://falaanimal.com.br/wp-content/uploads/2019/04/vingadoresultimato1_10042019-701x1024.jpg",
+  imageBanner: "https://static.skyassets.com/contentstack/assets/blt143e20b03d72047e/bltb9972eda8f4c3a4e/5dfb940346bc275c7135777e/AvengersEndgame_Hero1_L.jpg?imageManager=true&width=1920",
+  linkVideo: "4QRdB4RAQMs",
+  category: "movies",
 
 };
 
